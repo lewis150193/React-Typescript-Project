@@ -2,7 +2,7 @@ import * as React from 'react';
 import {LoginProps, LoginState} from "./types";
 import {getCharacters} from "../../actions/getPhotosAction";
 import { connect } from 'react-redux'
-
+import {ListItem} from "../../styled-components/listItem";
 
 class Login extends React.Component<LoginProps,LoginState> {
     constructor(props: LoginProps) {
@@ -22,9 +22,9 @@ class Login extends React.Component<LoginProps,LoginState> {
         return (
             <ul>
                 {characters.map( (char: any) => (
-                       <li key={char.id}>
+                       <ListItem key={char.id}>
                            {char.name}
-                       </li>
+                       </ListItem>
                 ))}
             </ul>
         );
