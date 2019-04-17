@@ -8,5 +8,6 @@ export interface LoginProps {
  history: History;
  getcharacters: any;
  characters: any;
+ something: any;
 
 }
