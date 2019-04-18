@@ -7,4 +7,4 @@ interface MyProps {
 interface extendedProps extends  MyProps{
     age: number
 }
-export const Hello = (props: extendedProps) => <h1>Hello {props.name} my age is {props.age}</h1>;
+export const Hello = (props: extendedProps) => <h1>Hello ${props.name}my age is ${props.age}</h1>;
