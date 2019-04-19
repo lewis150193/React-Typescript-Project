@@ -4,7 +4,7 @@ import {SendMessage} from "../../actions/SendMessage";
 import { connect } from 'react-redux'
 import {Div} from "../../styled-components/div";
 
-import { AppState} from "../../reducers";
+import { AppState } from "../../reducers";
 import {SyntheticEvent} from "react";
 import {Message} from "../../actions/actionTypes";
 
@@ -39,8 +39,7 @@ class Messages extends React.Component<MessageProps,MessageStat> {
     };
 
     render() {
-        console.log(this.props);
-        console.log(this.state)
+        const { messages } = this.props.message;
         return (
             <>
                 <form>
@@ -48,7 +47,7 @@ class Messages extends React.Component<MessageProps,MessageStat> {
                     <input type="input" name='message' onChange={(e) => this.onChange(e)} value={this.state.message}/>
                     <input type="submit" name='submit' onClick={(e) => this.submitMessage(e)} />
                 </form>
-                {this.props.message.messages.map((message: Message, index: number) => (
+                {messages.map((message: Message, index: number) => (
                         <Div key={index}>
                         <p> <strong>Title:</strong>{message.name}</p>
                         <p><strong>Message:</strong>{message.message}</p>
