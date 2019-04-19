@@ -3,9 +3,11 @@ import { History } from 'history';
 export interface HomeProps {
     time?: number;
     history: History;
+    className: string
 
 }
 
 export interface HomeState {
-    profession: string;
+    username: string;
+    password: string;
 }

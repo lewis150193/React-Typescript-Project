@@ -4,6 +4,7 @@ export const GET_CHARACTERS = 'GET_CHARACTERS';
 export interface Message {
     name: string
     message: string
+    date: number
 }
 
 export interface MessagInitaleState {

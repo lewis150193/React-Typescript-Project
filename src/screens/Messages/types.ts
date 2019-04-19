@@ -9,4 +9,5 @@ export interface MessageStat {
 export interface MessageProps {
     message: MessagInitaleState,
     messageAction: typeof SendMessage,
+    className: string
 }

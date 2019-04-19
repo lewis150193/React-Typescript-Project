@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import {AddMr} from "../../reducers/GetPhotos/getPhotosReducer";
 import {ListItem} from "../../styled-components/listItem";
 import { AppState} from "../../reducers";
+import {StyledButton} from "../../styled-components/Button";
 
 class Login extends React.Component<LoginProps,LoginState> {
     constructor(props: LoginProps) {
@@ -31,7 +32,7 @@ class Login extends React.Component<LoginProps,LoginState> {
                        </ListItem>
                 ))}
             </ul>
-                <button onClick={() => history.push('/messages')}>Go To Messages</button>
+                <StyledButton onClick={() => history.push('/messages')}>Go To Messages</StyledButton>
                 <p>{something}</p>
                 </div>
         );

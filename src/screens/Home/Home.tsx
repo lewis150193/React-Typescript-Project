@@ -1,26 +1,45 @@
 import * as React from 'react';
-import {Hello} from "../../components/Hello";
 import {HomeProps, HomeState} from "./types";
+import {StyledTextBox} from "../../styled-components/TextInput";
+import {Wrapper} from "../../components/Wrapper";
+import {StyledButton} from "../../styled-components/Button";
+import {SyntheticEvent} from "react";
 
 export class Home extends React.Component<HomeProps,HomeState>{
     constructor(props: HomeProps) {
         super(props);
         this.state = {
-            profession: 'Developer'
+            username: '',
+            password: ''
+        }
+    }
+
+    onChange = (e: SyntheticEvent) => {
+        // @ts-ignore
+        this.setState({[e.target.name]: e.target.value})
+    }
+
+    onSumbit = (e: SyntheticEvent) => {
+        e.preventDefault();
+        const { username, password} = this.state;
+        const {history} =  this.props;
+        if(username === 'username' && password === 'password'){
+            history.push('/login')
+        } else {
+            alert('Sorry Wrong Credentials');
         }
     }
 
     render() {
-        console.log(this.props);
-
-        const { history } = this.props;
+        console.log(this.state);
         return (
-            <div>
-                <Hello age={35} name='Lewis'/>
-                <p>{this.state.profession}</p>
-                <p>{this.props.time}</p>
-                <button onClick={() => history.push('/login')}>Click Me</button>
+            <Wrapper>
+            <div style={{backgroundColor: '#E0E0E0', flex: 1}}>
+                <StyledTextBox  className={this.props.className} onChange={(e) => this.onChange(e)} name={'username'} value={this.state.username} placeHolder={'Enter Username'}/>
+                <StyledTextBox  className={this.props.className} onChange={(e) => this.onChange(e)} name={'password'} value={this.state.password}  placeHolder={'Enter Password'}/>
+                <StyledButton onClick={(e) => this.onSumbit(e)}>Click Me</StyledButton>
             </div>
+            </Wrapper>
         );
     }
 
