@@ -12,6 +12,7 @@ export class Home extends React.Component<HomeProps,HomeState>{
 
     render() {
         console.log(this.props);
+
         const { history } = this.props;
         return (
             <div>

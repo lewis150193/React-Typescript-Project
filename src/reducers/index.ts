@@ -1,6 +1,11 @@
 import {combineReducers} from "redux";
-import {characters} from "./getPhotosReducer";
+import {characters} from "./GetPhotos/getPhotosReducer";
+import {MessageReducer} from "./SendMessage";
 
-export default combineReducers({
-    charactersReducer: characters
+export const rootReducer = combineReducers({
+    charactersReducer: characters,
+    messageReducer: MessageReducer
 })
+
+export type AppState = ReturnType<typeof rootReducer>
+

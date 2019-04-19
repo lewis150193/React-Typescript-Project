@@ -1,6 +1,9 @@
-import {GET_CHARACTERS} from "../actions/actionTypes";
+import {GET_CHARACTERS} from "../../actions/actionTypes";
 import {AnyAction} from "redux";
-import {initstate, } from "../initalState";
+
+ const initstate: Array<any> = [];
+
+
 
 export const characters = (state = initstate, action: AnyAction) => {
     switch (action.type) {

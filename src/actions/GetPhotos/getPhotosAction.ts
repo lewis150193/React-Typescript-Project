@@ -1,4 +1,4 @@
-import {GET_CHARACTERS} from "./actionTypes";
+import {GET_CHARACTERS} from "../actionTypes";
 import {Dispatch} from "redux";
 
 

@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {LoginProps, LoginState} from "./types";
-import {getCharacters} from "../../actions/getPhotosAction";
+import {getCharacters} from "../../actions/GetPhotos/getPhotosAction";
 import { connect } from 'react-redux'
-import {AddMr} from "../../reducers/getPhotosReducer";
+import {AddMr} from "../../reducers/GetPhotos/getPhotosReducer";
 import {ListItem} from "../../styled-components/listItem";
+import { AppState} from "../../reducers";
 
 class Login extends React.Component<LoginProps,LoginState> {
     constructor(props: LoginProps) {
@@ -18,7 +19,8 @@ class Login extends React.Component<LoginProps,LoginState> {
     };
 
     render() {
-        console.log(this.props)
+        const {history} = this.props;
+        console.log(this.props);
         const { characters,  something } = this.props;
         return (
             <div>
@@ -29,6 +31,7 @@ class Login extends React.Component<LoginProps,LoginState> {
                        </ListItem>
                 ))}
             </ul>
+                <button onClick={() => history.push('/messages')}>Go To Messages</button>
                 <p>{something}</p>
                 </div>
         );
@@ -36,7 +39,7 @@ class Login extends React.Component<LoginProps,LoginState> {
 }
 
 
-const mapStateToProps = (state: any) => ({
+const mapStateToProps = (state: AppState) => ({
     characters:  state.charactersReducer,
     something: AddMr(state),
 });
