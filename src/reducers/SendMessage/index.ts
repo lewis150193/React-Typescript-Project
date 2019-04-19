@@ -1,4 +1,4 @@
-import {MessagInitaleState, MessageActionTypes, SEND_MESSAGE } from "../../actions/actionTypes";
+import {MessagInitaleState, MessageActionTypes } from "../../actions/actionTypes";
 
 const initalState: MessagInitaleState = {
     messages: []

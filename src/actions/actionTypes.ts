@@ -1,5 +1,6 @@
 export const SEND_MESSAGE = 'SEND_MESSAGE';
 export const GET_CHARACTERS = 'GET_CHARACTERS';
+export const GET_SWEETS = 'GET_SWEETS';
 
 export interface Message {
     name: string
@@ -18,7 +19,7 @@ export interface SendMessageAction {
 }
 
 interface SendSweets {
-    type: typeof GET_CHARACTERS,
+    type: typeof GET_SWEETS,
     payload: Message
     sweets: string
 }
