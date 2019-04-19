@@ -1,4 +1,4 @@
-import {MessageState} from "../../actions/actionTypes";
+import {MessagInitaleState} from "../../actions/actionTypes";
 import {SendMessage} from "../../actions/SendMessage";
 
 export interface MessageStat {
@@ -7,6 +7,6 @@ export interface MessageStat {
 }
 
 export interface MessageProps {
-    message: MessageState,
-    messageAction: typeof SendMessage
+    message: MessagInitaleState,
+    messageAction: typeof SendMessage,
 }

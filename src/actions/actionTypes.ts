@@ -6,7 +6,7 @@ export interface Message {
     message: string
 }
 
-export interface MessageState {
+export interface MessagInitaleState {
     messages: Message[]
 }
 
@@ -17,7 +17,7 @@ export interface SendMessageAction {
 }
 
 interface SendSweets {
-    type: typeof SEND_MESSAGE,
+    type: typeof GET_CHARACTERS,
     payload: Message
     sweets: string
 }

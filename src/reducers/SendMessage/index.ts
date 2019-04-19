@@ -1,10 +1,10 @@
-import {MessageState, MessageActionTypes, SEND_MESSAGE } from "../../actions/actionTypes";
+import {MessagInitaleState, MessageActionTypes, SEND_MESSAGE } from "../../actions/actionTypes";
 
-const initalState: MessageState = {
+const initalState: MessagInitaleState = {
     messages: []
 }
 
-export const MessageReducer =  (state = initalState, action: MessageActionTypes): MessageState => {
+export const MessageReducer =  (state = initalState, action: MessageActionTypes): MessagInitaleState => {
     switch(action.type) {
         case "SEND_MESSAGE":
             return {
