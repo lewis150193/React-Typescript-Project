@@ -33,8 +33,8 @@ export class Home extends React.Component<HomeProps, HomeState> {
   render() {
     console.log(this.state);
     return (
-      <Wrapper>
-        <div style={{ backgroundColor: "#E0E0E0", flex: 1 }}>
+      <Wrapper styling={{flex: 1, color: 'black'}}>
+        <div style={{ backgroundColor: "#E0E0E0", flex: 2 }}>
           <StyledTextBox
             className={this.props.className}
             onChange={e => this.onChange(e)}

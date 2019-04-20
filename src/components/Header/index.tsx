@@ -10,7 +10,7 @@ import React from 'react';
         font: 'normal 18px sans-serif',
         padding: '45px',
         marginTop: '80px'
-    }
+    };
 
 export const Header = () => (
 // @ts-ignore
