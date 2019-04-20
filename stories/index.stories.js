@@ -7,8 +7,8 @@ import { StyledTextBox } from "../src/styled-components/TextInput";
 import { Header } from "../src/components/Header";
 import { Footer } from "../src/components/Footer";
 import { Wrapper } from "../src/components/Wrapper";
-// @ts-ignore
 import { Button } from "@storybook/react/demo";
+import Map from "../src/components/Map";
 import { ListItem } from "../src/styled-components/listItem";
 
 storiesOf("Custom Component", module)
@@ -40,7 +40,8 @@ storiesOf("Custom Component", module)
         </div>
       }
     />
-  ));
+  ))
+    .add('Map',() => <Map text={'Im here'} />);
 
 storiesOf("Button", module)
   .add("with text", () => (
