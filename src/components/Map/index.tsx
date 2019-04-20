@@ -8,6 +8,7 @@ const AnyReactComponent = ({ text }: any) => <div>{text}</div>;
             lat: number,
             lng: number
         }
+        text: string
     }
 
 class SimpleMap extends Component<Props> {
@@ -28,7 +29,7 @@ class SimpleMap extends Component<Props> {
                     <AnyReactComponent
                         lat={this.props.center.lat}
                         lng={this.props.center.lng}
-                        text="We are here"
+                        text={this.props.text}
                     />
                 </GoogleMapReact>
             </div>

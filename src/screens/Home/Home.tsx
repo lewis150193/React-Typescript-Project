@@ -74,7 +74,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           />
             <p>Accept terms and conditions</p>
           </span>
-          <Map center={Cords.center} />
+          <Map center={Cords.center} text={'This is where you are'} />
           <StyledButton onClick={e => this.onSumbit(e)}>Click Me</StyledButton>
         </div>
       </Wrapper>
