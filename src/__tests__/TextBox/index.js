@@ -3,7 +3,6 @@ import { shallow } from "enzyme/build";
 import Enzyme from 'enzyme/build'
 import Adapter from 'enzyme-adapter-react-16/build'
 import React from "react";
-import {CommonWrapper as jest} from "enzyme";
 
 Enzyme.configure({ adapter: new Adapter()});
 
@@ -25,7 +24,7 @@ describe('should test TextBox', function () {
     });
     it('should simulate TextBox change', function () {
         const wrapper = shallow(<TextBox {...Props}/>)
-        const button = wrapper.find('button').simulate('click');
-        expect(button).toBeCalledOnce();
+        const input = wrapper.find('input').simulate('change');
+        expect(input).toBeTruthy();
     });
 });
