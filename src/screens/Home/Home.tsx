@@ -66,11 +66,14 @@ export class Home extends React.Component<HomeProps, HomeState> {
             value={this.state.password}
             placeHolder={"Enter Password"}
           />
+          <span>
           <input
             type="checkbox"
             onChange={e => this.onCheck(e)}
             checked={this.state.accepted}
           />
+            <p>Accept terms and conditions</p>
+          </span>
           <Map center={Cords.center} />
           <StyledButton onClick={e => this.onSumbit(e)}>Click Me</StyledButton>
         </div>
