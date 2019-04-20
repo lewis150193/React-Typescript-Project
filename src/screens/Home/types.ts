@@ -10,4 +10,5 @@ export interface HomeProps {
 export interface HomeState {
     username: string;
     password: string;
+    accepted: boolean;
 }
