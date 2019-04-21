@@ -58,6 +58,7 @@
     "enzyme": "^3.9.0",
     "enzyme-adapter-react-16": "^1.12.1",
     "jest": "^24.7.1",
+    "query-string": "^6.4.2",
     "react-redux": "^7.0.2",
     "react-router": "^5.0.0",
     "react-test-renderer": "^16.8.6",

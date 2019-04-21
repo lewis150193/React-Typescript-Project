@@ -5,6 +5,7 @@ import { Wrapper } from "../../components/Wrapper";
 import { StyledButton } from "../../styled-components/Button";
 import { SyntheticEvent } from "react";
 import Map from "../../components/Map";
+import queryString from "query-string";
 
 const Cords = {
   center: {
@@ -33,15 +34,28 @@ export class Home extends React.Component<HomeProps, HomeState> {
     const { history } = this.props;
     if (!accepted) {
       alert("Please accepted terms and conditions");
-    } else if (username === "username" && password === "password" && accepted) {
-      history.push("/login");
     } else {
-      alert("Sorry Wrong Credentials");
+      // alert("Sorry Wrong Credentials");
+      fetch(`http://localhost:9898/service/user/signup`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: queryString.stringify({
+          username: username,
+          password: password
+        })
+      }).then(response => {
+        if (response.status === 200) {
+          console.log(response);
+          history.push("/login");
+        }
+      });
     }
   };
 
-  onCheck = (e: SyntheticEvent) => {
-    e.preventDefault();
+  onCheck = () => {
     this.setState(prevState => ({
       accepted: !prevState.accepted
     }));
@@ -69,7 +83,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           <div style={{ display: "inline-block" }}>
             <input
               type="checkbox"
-              onChange={e => this.onCheck(e)}
+              onChange={() => this.onCheck()}
               checked={this.state.accepted}
             />
             <p>Accept terms and conditions</p>
