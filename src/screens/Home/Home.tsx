@@ -4,12 +4,12 @@ import { StyledTextBox } from "../../styled-components/TextInput";
 import { Wrapper } from "../../components/Wrapper";
 import { StyledButton } from "../../styled-components/Button";
 import { SyntheticEvent } from "react";
-import Map from '../../components/Map'
+import Map from "../../components/Map";
 
 const Cords = {
   center: {
     lat: 51.548936,
-    lng: -0.271750
+    lng: -0.27175
   }
 };
 export class Home extends React.Component<HomeProps, HomeState> {
@@ -66,15 +66,15 @@ export class Home extends React.Component<HomeProps, HomeState> {
             value={this.state.password}
             placeHolder={"Enter Password"}
           />
-          <span>
-          <input
-            type="checkbox"
-            onChange={e => this.onCheck(e)}
-            checked={this.state.accepted}
-          />
+          <div style={{ display: "inline-block" }}>
+            <input
+              type="checkbox"
+              onChange={e => this.onCheck(e)}
+              checked={this.state.accepted}
+            />
             <p>Accept terms and conditions</p>
-          </span>
-          <Map center={Cords.center} text={'This is where you are'} />
+          </div>
+          <Map center={Cords.center} />
           <StyledButton onClick={e => this.onSumbit(e)}>Click Me</StyledButton>
         </div>
       </Wrapper>

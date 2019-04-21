@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
+import image from '../../Images/pin-blue.png'
 
-const AnyReactComponent = ({ text }: any) => <div>{text}</div>;
+const AnyReactComponent = ({ image }: any) => <img src={image} alt={'pointer'}/>;
 
     interface Props {
         center: {
             lat: number,
             lng: number
         }
-        text: string
     }
 
 class SimpleMap extends Component<Props> {
@@ -29,7 +29,7 @@ class SimpleMap extends Component<Props> {
                     <AnyReactComponent
                         lat={this.props.center.lat}
                         lng={this.props.center.lng}
-                        text={this.props.text}
+                        image={image}
                     />
                 </GoogleMapReact>
             </div>
