@@ -11,6 +11,12 @@ import { Button } from "@storybook/react/demo";
 import Map from "../src/components/Map";
 import { ListItem } from "../src/styled-components/listItem";
 
+const Cords = {
+    center: {
+        lat: 51.548936,
+        lng: -0.27175
+    }
+};
 storiesOf("Custom Component", module)
   .add("Button Component", () => (
     <StyledButton onClick={() => console.log("Clicked")}>Click Me</StyledButton>
@@ -41,7 +47,7 @@ storiesOf("Custom Component", module)
       }
     />
   ))
-    .add('Map',() => <Map text={'Im here'} />);
+    .add('Map',() => <Map center={Cords.center} />);
 
 storiesOf("Button", module)
   .add("with text", () => (
