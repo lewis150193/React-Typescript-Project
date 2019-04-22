@@ -47,9 +47,10 @@ export class Home extends React.Component<HomeProps, HomeState> {
           password: password
         })
       }).then(response => {
+        console.log(response);
         if (response.status === 200) {
           console.log(response);
-          history.push("/login");
+          // history.push("/login");
         }
       });
     }
