@@ -18,6 +18,7 @@
 .env.test.local
 .idea/**/*
 .idea/*
+.env
 .env.production.local
 
 npm-debug.log*
