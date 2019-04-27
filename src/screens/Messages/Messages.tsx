@@ -1,7 +1,7 @@
 import * as React from "react";
 import { MessageProps, MessageStat } from "./types";
 import { SendMessage } from "../../actions/SendMessage";
-import { connect, MapDispatchToProps } from "react-redux";
+import { connect, MapStateToProps } from "react-redux";
 import { Div } from "../../styled-components/div";
 import Auth from "../../Auth/Auth";
 import { AppState } from "../../reducers";
@@ -9,6 +9,7 @@ import { SyntheticEvent } from "react";
 import { Message } from "../../actions/actionTypes";
 import { StyledTextBox } from "../../styled-components/TextInput";
 import { StyledButton } from "../../styled-components/Button";
+import { store } from "../../Root";
 
 class Messages extends React.Component<MessageProps, MessageStat> {
   constructor(props: MessageProps) {
@@ -54,6 +55,7 @@ class Messages extends React.Component<MessageProps, MessageStat> {
   };
   render() {
     const { messages } = this.props.message;
+    console.log(store.getState());
     return (
       <>
         <form>
@@ -97,7 +99,7 @@ class Messages extends React.Component<MessageProps, MessageStat> {
   }
 }
 
-const mapStateToProps = (state: AppState) => ({
+const mapStateToProps: MapStateToProps<any,any,any> = (state: AppState) => ({
   message: state.messageReducer
 });
 
