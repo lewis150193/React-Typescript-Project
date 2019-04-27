@@ -8,7 +8,7 @@ import {AnyAction} from "redux";
 export const characters = (state = initstate, action: AnyAction) => {
     switch (action.type) {
         case GET_CHARACTERS:
-            return action.payload;
+            return Object.assign([], initstate, action.payload);
         default:
             return state;
     }

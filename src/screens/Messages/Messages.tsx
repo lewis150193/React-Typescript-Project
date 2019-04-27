@@ -1,9 +1,9 @@
 import * as React from "react";
 import { MessageProps, MessageStat } from "./types";
 import { SendMessage } from "../../actions/SendMessage";
-import { connect } from "react-redux";
+import { connect, MapDispatchToProps } from "react-redux";
 import { Div } from "../../styled-components/div";
-import Auth from '../../Auth/Auth'
+import Auth from "../../Auth/Auth";
 import { AppState } from "../../reducers";
 import { SyntheticEvent } from "react";
 import { Message } from "../../actions/actionTypes";
@@ -19,22 +19,27 @@ class Messages extends React.Component<MessageProps, MessageStat> {
     };
   }
 
- public componentDidMount(): void {
-    this.props.messageAction({
-      name: "Test Name",
-      message: "Test Message",
-      date: this.getData()
-    });
-    new Auth().handleAuth()
+  public componentDidMount(): void {
+    // @ts-ignore
+      this.props.dispatch(
+      SendMessage({
+        name: "Test Name",
+        message: "Test Message",
+        date: this.getData()
+      })
+    );
+
+    new Auth().handleAuth();
   }
 
   public submitMessage = (e: SyntheticEvent) => {
     e.preventDefault();
-    this.props.messageAction({
+    // @ts-ignore
+      this.props.dispatch(SendMessage({
       name: this.state.name,
       message: this.state.message,
       date: this.getData()
-    });
+    }));
     this.setState({ name: "", message: "" });
   };
 
@@ -96,11 +101,8 @@ const mapStateToProps = (state: AppState) => ({
   message: state.messageReducer
 });
 
-const mapDispatchToProps = {
-  messageAction: SendMessage
-};
+// const mapDispatchToProps: MapDispatchToProps<any, any> = {
+//   messageAction: SendMessage
+// };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Messages);
+export default connect(mapStateToProps)(Messages);
