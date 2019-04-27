@@ -6,6 +6,7 @@ import { StyledButton } from "../../styled-components/Button";
 import { SyntheticEvent } from "react";
 import Map from "../../components/Map";
 import queryString from "query-string";
+import Auth from "../../Auth/Auth";
 
 const Cords = {
   center: {
@@ -56,6 +57,11 @@ export class Home extends React.Component<HomeProps, HomeState> {
     }
   };
 
+  onLogin = () => {
+    const auth = new Auth();
+    return auth.login()
+  };
+
   onCheck = () => {
     this.setState(prevState => ({
       accepted: !prevState.accepted
@@ -91,6 +97,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
           </div>
           <Map center={Cords.center} />
           <StyledButton onClick={e => this.onSumbit(e)}>Click Me</StyledButton>
+          <StyledButton onClick={() => this.onLogin()}>Login</StyledButton>
         </div>
       </Wrapper>
     );

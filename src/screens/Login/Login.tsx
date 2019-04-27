@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { ListItem } from "../../styled-components/listItem";
 import { AppState } from "../../reducers";
 import { StyledButton } from "../../styled-components/Button";
+import auth from "../../Auth/Auth";
 
 class Login extends React.Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {
@@ -14,11 +15,18 @@ class Login extends React.Component<LoginProps, LoginState> {
     };
   }
 
+  getAuth = () => {
+    return new auth();
+  };
   componentDidMount(): void {
     this.props.getcharacters();
   }
 
   render() {
+    if (!this.getAuth().isAuth()) {
+      this.props.history.push("/error");
+    }
+
     const { characters, history } = this.props;
     return (
       <div>
