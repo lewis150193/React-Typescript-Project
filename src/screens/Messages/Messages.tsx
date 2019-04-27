@@ -3,7 +3,7 @@ import { MessageProps, MessageStat } from "./types";
 import { SendMessage } from "../../actions/SendMessage";
 import { connect } from "react-redux";
 import { Div } from "../../styled-components/div";
-
+import Auth from '../../Auth/Auth'
 import { AppState } from "../../reducers";
 import { SyntheticEvent } from "react";
 import { Message } from "../../actions/actionTypes";
@@ -25,6 +25,7 @@ class Messages extends React.Component<MessageProps, MessageStat> {
       message: "Test Message",
       date: this.getData()
     });
+    new Auth().handleAuth()
   }
 
   public submitMessage = (e: SyntheticEvent) => {
