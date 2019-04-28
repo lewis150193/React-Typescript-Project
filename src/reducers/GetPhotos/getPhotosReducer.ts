@@ -15,4 +15,3 @@ export const characters = (state = initstate, action: AnyAction) => {
     }
 };
 //
-export const getCharactersSelector = (state: AppState) =>  state.charactersReducer;

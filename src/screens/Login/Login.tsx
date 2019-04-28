@@ -6,6 +6,10 @@ import { ListItem } from "../../styled-components/listItem";
 import { AppState } from "../../reducers";
 import { StyledButton } from "../../styled-components/Button";
 import auth from "../../Auth/Auth";
+import {
+  getCharactersSelector,
+  getOneCharacter
+} from "../../reducers/GetPhotos/selectors";
 
 class Login extends React.Component<LoginProps, LoginState> {
   constructor(props: LoginProps) {
@@ -18,6 +22,7 @@ class Login extends React.Component<LoginProps, LoginState> {
   getAuth = () => {
     return new auth();
   };
+
   componentDidMount(): void {
     this.props.getcharacters();
   }
@@ -26,7 +31,7 @@ class Login extends React.Component<LoginProps, LoginState> {
     if (!this.getAuth().isAuth()) {
       this.props.history.push("/error");
     }
-
+    console.log(this.props.oneChar);
     const { characters, history } = this.props;
     return (
       <div>
@@ -44,7 +49,8 @@ class Login extends React.Component<LoginProps, LoginState> {
 }
 
 const mapStateToProps = (state: AppState) => ({
-  characters: state.charactersReducer
+  characters: getCharactersSelector(state),
+  oneChar: getOneCharacter(state, "Morty Smith")
 });
 
 const mapDispatchToProps = {
