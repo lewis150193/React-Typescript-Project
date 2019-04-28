@@ -10,6 +10,7 @@ import { Message } from "../../actions/actionTypes";
 import { StyledTextBox } from "../../styled-components/TextInput";
 import { StyledButton } from "../../styled-components/Button";
 import { store } from "../../Root";
+import {getMessages} from "../../reducers/SendMessage/selectors";
 
 class Messages extends React.Component<MessageProps, MessageStat> {
   constructor(props: MessageProps) {
@@ -86,7 +87,7 @@ class Messages extends React.Component<MessageProps, MessageStat> {
 }
 
 const mapStateToProps: MapStateToProps<any,any,any> = (state: AppState) => ({
-  message: state.messageReducer,
+  message: getMessages(state),
 });
 
 // const mapDispatchToProps: MapDispatchToProps<any, any> = {
