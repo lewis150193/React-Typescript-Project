@@ -1,7 +1,8 @@
 import {GET_CHARACTERS} from "../../actions/actionTypes";
 import {AnyAction} from "redux";
+import {AppState} from "../index";
 
- const initstate: Array<any> = [];
+const initstate: Array<any> = [];
 
 
 
@@ -14,15 +15,4 @@ export const characters = (state = initstate, action: AnyAction) => {
     }
 };
 //
-export const AddMr = (state: any) => {
-
-    let nameString: string;
-
-    if(state.charactersReducer){
-         nameString = 'Howdy'
-    } else {
-        nameString = 'Powdy'
-    }
-
-    return state.charactersReducer.map((m: any) => `${nameString} ${m.name} - `)
-};
+export const getCharactersSelector = (state: AppState) =>  state.charactersReducer;

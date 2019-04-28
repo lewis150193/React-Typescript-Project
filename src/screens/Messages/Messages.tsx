@@ -2,7 +2,7 @@ import * as React from "react";
 import { MessageProps, MessageStat } from "./types";
 import { SendMessage } from "../../actions/SendMessage";
 import { connect, MapStateToProps } from "react-redux";
-import { Div } from "../../styled-components/div";
+import {MessageBox} from "../../components/Messages";
 import Auth from "../../Auth/Auth";
 import { AppState } from "../../reducers";
 import { SyntheticEvent } from "react";
@@ -77,22 +77,8 @@ class Messages extends React.Component<MessageProps, MessageStat> {
             Send Message
           </StyledButton>
         </form>
-        {messages.map((message: Message, index: number) => (
-          <Div key={index}>
-            <p>
-              {" "}
-              <strong>Title:</strong>
-              {message.name}
-            </p>
-            <p>
-              <strong>Message:</strong>
-              {message.message}
-            </p>
-            <p>
-              <strong>Id:</strong>
-              {message.date}
-            </p>
-          </Div>
+        {messages.map((message: Message) => (
+            <MessageBox title={message.name} value={message.message} date={message.date}/>
         ))}
       </>
     );
@@ -100,7 +86,7 @@ class Messages extends React.Component<MessageProps, MessageStat> {
 }
 
 const mapStateToProps: MapStateToProps<any,any,any> = (state: AppState) => ({
-  message: state.messageReducer
+  message: state.messageReducer,
 });
 
 // const mapDispatchToProps: MapDispatchToProps<any, any> = {
